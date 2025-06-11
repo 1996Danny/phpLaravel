@@ -15,3 +15,4 @@ Route::get('/', [MiPrimerControlador::class, 'raiz']);
 Route::get('/saludo', [MiPrimerControlador::class, 'saludo']);
 Route::get('/misNoticias', [MiPrimerControlador::class, 'misNoticias']);
 Route::get('/miHistoria', [MiPrimerControlador::class, 'miHistoria']);
+Route::get('/clientes', [MiPrimerControlador::class, 'misClientes']);
