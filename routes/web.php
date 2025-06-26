@@ -16,5 +16,8 @@ Route::get('/saludo', [MiPrimerControlador::class, 'saludo']);
 Route::get('/misNoticias', [MiPrimerControlador::class, 'misNoticias']);
 Route::get('/miHistoria', [MiPrimerControlador::class, 'miHistoria']);
 Route::get('/clientes', [MiPrimerControlador::class, 'misClientes']);
+Route::get('/cliente/{idCliente}', [MiPrimerControlador::class, 'filtrarClintePorrId']);
+Route::get('/clientedni/{dni}', [MiPrimerControlador::class, 'filtrarClientePorDni']);
+Route::get('/clientes/apellido/{apellido}', [MiPrimerControlador::class, 'filtrarNombreCoincidencia']);
 Route::get('/pedidos', [MiPrimerControlador::class, 'misPedidos']);
 Route::get('/comidas', [MiPrimerControlador::class, 'misComidas']);

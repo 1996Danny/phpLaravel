@@ -42,5 +42,22 @@ class MiPrimerControlador extends Controller
         return $comidas;
     }
 
+    public function filtrarClintePorrId ($idCliente) {
+        //filtrar el clinete con id = idCliente
+        $cliente = DB::table('clientes')-> where('id', $idCliente)-> first();
+    
+        return $cliente;
+    }
+
+    public function filtrarClientePorDni($dni){
+        // filtrar cliente por dni
+        $cliente = DB::table('clientes')-> where('dni', $dni)-> first();
+        return $cliente;
+    }
+    public function filtrarNombreCoincidencia($apellido){
+        //filtrar por nombre que comience con Per
+        $clientes = DB::table('clientes')-> where('apellido', 'like', '%' . $apellido . '%')-> get();
+        return $clientes;
+    }
 
 }
