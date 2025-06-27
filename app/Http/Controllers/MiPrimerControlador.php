@@ -69,4 +69,12 @@ class MiPrimerControlador extends Controller
         return $clientes;
     }
 
+    public function eliminarCliente($id){
+        // eliminar cliente con id = id
+        $cliente = DB::table('clientes')-> where('id', $id)-> delete();
+
+
+        return $cliente;
+    }
+
 }
