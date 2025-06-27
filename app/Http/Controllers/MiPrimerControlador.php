@@ -54,6 +54,15 @@ class MiPrimerControlador extends Controller
         $cliente = DB::table('clientes')-> where('dni', $dni)-> first();
         return $cliente;
     }
+
+    public function dniMayorIgual ($dni) {
+        //filtrar clientes con dni mayor e igual a dni
+        $clientes = DB::table('clientes')-> where('dni', '>=', $dni)-> get();
+        // $clientes = DB::table('clientes')-> where('dni', '>', $dni 'and' , '=', $dni)-> get();
+        return $clientes;
+
+    }
+
     public function filtrarNombreCoincidencia($apellido){
         //filtrar por nombre que comience con Per
         $clientes = DB::table('clientes')-> where('apellido', 'like', '%' . $apellido . '%')-> get();
