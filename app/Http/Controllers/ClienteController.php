@@ -30,7 +30,16 @@ class ClienteController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // insertar un nuevo cliente
+        DB::table('clientes')-> insert([
+
+            'apellido' => $request['apellido'],
+            'nombre' => $request['nombre'],
+            'dni' => $request['dni'],
+            'direccion' => $request['direccion'],
+            'telefono' => $request['telefono'],
+        ]);
+        return response()-> json(['message' => 'Cliente agregado correctamente']);
     }
 
     /**
@@ -57,6 +66,14 @@ class ClienteController extends Controller
     public function update(Request $request, string $id)
     {
         //
+        DB::table('clientes') -> where ('id', $id) -> update([
+            'apellido' => $request['apellido'],
+            'nombre' => $request['nombre'],
+            'dni' => $request['dni'],
+            'direccion' => $request['direccion'],
+            'telefono' => $request['telefono'],
+        ]);
+        return response()-> json(['message' => 'Cliente actualizado correctamente']);
     }
 
     /**
@@ -66,6 +83,8 @@ class ClienteController extends Controller
     {
         $cliente = DB::table('clientes')-> where('id', $id)-> delete();
     
-        return $cliente;
+        return response()->json([
+            'id' => $id,
+            'mensaje' => 'Cliente eliminado con exito '], 200);
     }
 }
